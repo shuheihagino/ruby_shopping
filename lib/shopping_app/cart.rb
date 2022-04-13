@@ -35,14 +35,28 @@ class Cart
   self.owner.wallet.withdraw(total_amount)
   seller = @items[0].owner
   seller.wallet.deposit(total_amount)
-  #item.owner.wallet.deposit(total_amount)
 
   customer = self.owner
   @items.map do |item|
-  item.owner = customer
+    item.owner = customer
+  end
+
+  items.clear
+
+end
+  
 end
 
-customer.cart.items.clear
+ # self.owner.wallet.withdraw(total_amount)
+  #seller = @items[0].owner
+  #seller.wallet.deposit(total_amount)
+
+  #customer = self.owner
+  #@items.map do |item|
+  #item.owner = customer
+#end
+
+#customer.cart.items.clear
 
   # ## ヒント
   #   - カートのオーナーのウォレット ==> self.owner.wallet
@@ -57,6 +71,3 @@ customer.cart.items.clear
 
   #カートの中身（Cart#items）をクリアする
 
-  end
-  
-end
